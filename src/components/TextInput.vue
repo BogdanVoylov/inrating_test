@@ -1,26 +1,32 @@
 <template>
-    <input type="text" :placeholder="placeholder" v-model="buffer" @keyup="$emit('input', buffer);">
-
-
+  <input
+      type="text"
+      :placeholder="placeholder"
+      v-model="buffer" @keyup="$emit('input', buffer);"
+      :required="required">
 </template>
 
 <script>
 export default {
   name: "TextInput",
-  props:{
-    placeholder:{
-      type:String,
-      default:""
+  props: {
+    placeholder: {
+      type: String,
+      default: ""
     },
-    value:{
-      type:String,
-      default:""
+    value: {
+      type: String,
+      default: ""
+    },
+    required: {
+      type: Boolean,
+      default: false
     }
   },
-  data(){
-    return {buffer:this.value}
+  data() {
+    return {buffer: this.value};
   }
-}
+};
 </script>
 
 <style scoped>
@@ -41,7 +47,7 @@ input {
   font-weight: 300;
 }
 
-::placeholder{
+::placeholder {
   color: rgba(135, 135, 135, 0.5);
 }
 </style>

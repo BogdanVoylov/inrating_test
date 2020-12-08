@@ -1,10 +1,10 @@
 <template>
-  <div style="padding-top:10px; text-align: center">
+  <div class="container">
     <Button @click="onAddClick">Add</Button>
     <Table v-if="table != null" style="margin-top:20px; font-size: 30px">
       <Row>
         <Header v-for="(el,i) in headers" :key="i">
-          {{el}}
+          {{ el }}
         </Header>
         <Header>
           <!--          for closing border-->
@@ -12,7 +12,7 @@
       </Row>
       <Row v-for="(el,i) in table" :key="i">
         <Cell v-for="(k,i) in keys" :key="i">
-          {{el[k]}}
+          {{ el[k] }}
         </Cell>
         <Cell>
           <Button @click="onEditClick(i)" theme="amber">Edit</Button>
@@ -39,7 +39,7 @@ import Entity from "@/data/entity";
 import Storage from "@/data/storage";
 
 export default {
-  name: 'Home',
+  name: "Home",
   components: {
     Table,
     Row,
@@ -48,40 +48,40 @@ export default {
     Button
   },
 
-  data(){
+  data() {
     const storage = new Storage();
     const table = storage.getAll();
     const fields = Entity.getFields();
-    const keys = fields.map(el=>{
-      return el.key
+    const keys = fields.map(el => {
+      return el.key;
     });
-    const headers = fields.map(el=>{
-      return el.en
+    const headers = fields.map(el => {
+      return el.en;
     });
-    return {storage,table,keys,headers};
+    return {storage, table, keys, headers};
   },
 
-  methods:{
-    onAddClick(){
-      console.log("on add click");
-      this.$router.push({name:"edit",params:{}})
+  methods: {
+    onAddClick() {
+      this.$router.push({name: "edit", params: {}});
     },
-    onEditClick(index){
-      console.log(`on edit click ${index}`);
-      this.$router.push({name:"edit",params:{index}})
+    onEditClick(index) {
+      this.$router.push({name: "edit", params: {index}});
     },
-    onDeleteClick(index){
-      console.log(`on delete click ${index}`);
+    onDeleteClick(index) {
       this.storage.delete(index);
       this.storage.save();
       this.$forceUpdate();
     }
   }
-}
+};
 </script>
 
 <style scoped>
-
+.container {
+  text-align: center;
+  padding-top: 10px;
+}
 </style>
 
 

@@ -1,23 +1,24 @@
 <template>
- <td>
-   <slot>
+  <td>
+    <slot>
 
-   </slot>
- </td>
+    </slot>
+  </td>
 </template>
 
 <script>
 export default {
-name: "Cell"
-}
+  name: "Cell"
+};
 </script>
 
 <style scoped>
-td{
-  border-top:solid white 1px;
-  border-left:solid white 1px;
+td {
+  border-top: solid white 1px;
+  border-left: solid white 1px;
 }
-td:first-child{
+
+td:first-child {
   border-left: none;
 }
 </style>

@@ -8,14 +8,15 @@
 
 <script>
 export default {
-name: "Header"
-}
+  name: "Header"
+};
 </script>
 
 <style scoped>
-th{
-  border-left:solid white 1px;
+th {
+  border-left: solid white 1px;
 }
+
 th:first-child {
   border-left: none;
 }

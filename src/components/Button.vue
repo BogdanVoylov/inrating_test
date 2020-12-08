@@ -15,10 +15,10 @@ export default {
   },
   methods: {
     onClick() {
-      this.$emit("click")
+      this.$emit("click");
     }
   }
-}
+};
 </script>
 
 <style scoped>
@@ -41,7 +41,7 @@ export default {
 }
 
 .default:hover {
-  background-color:  rgba(153, 153, 153, .8);
+  background-color: rgba(153, 153, 153, .8);
 }
 
 .danger {
@@ -58,7 +58,7 @@ export default {
   background-color: rgba(255, 201, 40, .5);
 }
 
-.amber:hover{
+.amber:hover {
   background-color: rgba(255, 201, 40, .8);
 }
 

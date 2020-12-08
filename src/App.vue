@@ -13,7 +13,7 @@ export default {
   components: {
     Background
   }
-}
+};
 </script>
 <style>
 @import url(https://fonts.googleapis.com/css?family=Exo:100);
