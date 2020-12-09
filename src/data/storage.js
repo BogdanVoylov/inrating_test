@@ -15,7 +15,7 @@ export default class Storage {
     }
 
     create(entity) {
-        this.entities.push(entity);
+        this.entities = this.entities.concat(entity);
     }
 
     update(index, entity) {
@@ -27,7 +27,10 @@ export default class Storage {
     }
 
     delete(index) {
+        console.log(this.entities);
         this.entities.splice(index, 1);
+        console.log(this.entities);
+
     }
 
     save() {

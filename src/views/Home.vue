@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <Button @click="onAddClick">Add</Button>
-    <Table v-if="table != null" style="margin-top:20px; font-size: 30px">
+    <Table v-if="table != null" style="margin:20px 0 0 0; font-size: 30px">
       <Row>
         <Header v-for="(el,i) in headers" :key="i">
           {{ el }}
@@ -50,6 +50,7 @@ export default {
 
   data() {
     const storage = new Storage();
+    console.log("rerender");
     const table = storage.getAll();
     const fields = Entity.getFields();
     const keys = fields.map(el => {
@@ -70,8 +71,9 @@ export default {
     },
     onDeleteClick(index) {
       this.storage.delete(index);
+      console.log(index);
       this.storage.save();
-      this.$forceUpdate();
+      this.table = new Storage().getAll();
     }
   }
 };

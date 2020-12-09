@@ -2,30 +2,17 @@
   <input
       type="text"
       :placeholder="placeholder"
-      v-model="buffer" @keyup="$emit('input', buffer);"
-      :required="required">
+      v-model="buffer" @keyup="onInput"
+  >
 </template>
 
 <script>
+import {input} from "@/components/input/mixins/input";
+
 export default {
   name: "TextInput",
-  props: {
-    placeholder: {
-      type: String,
-      default: ""
-    },
-    value: {
-      type: String,
-      default: ""
-    },
-    required: {
-      type: Boolean,
-      default: false
-    }
-  },
-  data() {
-    return {buffer: this.value};
-  }
+  mixins: [input],
+
 };
 </script>
 
