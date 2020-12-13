@@ -40,6 +40,7 @@ import Storage from "@/data/storage";
 
 export default {
   name: "Home",
+  inject:['storage'],
   components: {
     Table,
     Row,
@@ -49,9 +50,8 @@ export default {
   },
 
   data() {
-    const storage = new Storage();
     console.log("rerender");
-    const table = storage.getAll();
+    const table = this.storage.getAll();
     const fields = Entity.getFields();
     const keys = fields.map(el => {
       return el.key;
@@ -59,7 +59,7 @@ export default {
     const headers = fields.map(el => {
       return el.en;
     });
-    return {storage, table, keys, headers};
+    return {table, keys, headers};
   },
 
   methods: {

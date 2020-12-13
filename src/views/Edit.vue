@@ -19,20 +19,19 @@
 <script>
 import TextInput from "@/components/input/TextInput";
 import Entity from "@/data/entity";
-import Storage from "@/data/storage";
 import Button from "@/components/Button";
 import TextArea from "@/components/input/TextArea";
 
 export default {
   name: "Edit",
   components: {TextArea, Button, TextInput},
+  inject:['storage'],
   data() {
-    const storage = new Storage();
     const index = this.$route.params.index == undefined ? -1 : parseInt(this.$route.params.index);
     const isAdd = index === -1;
     const fields = Entity.getFields();
-    const values = isAdd ? {} : storage.getAll()[index];
-    return {storage, fields, index, values, isAdd, json: ""};
+    const values = isAdd ? {} : this.storage.getAll()[index];
+    return {fields, index, values, isAdd, json: ""};
   },
   methods: {
     onBackClick() {

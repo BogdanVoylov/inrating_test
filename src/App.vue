@@ -7,9 +7,13 @@
 </template>
 <script>
 import Background from "@/components/Background";
+import Storage from "@/data/storage";
 
 export default {
   name: "App",
+  provide:{
+    storage:new Storage()
+  },
   components: {
     Background
   }
